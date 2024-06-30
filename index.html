@@ -2,51 +2,12 @@
 <html>
 <head>
     <title>Rush Area Map</title>
-    <style>
-        /* Set the size of the div element that contains the map */
-        #map {
-            height: 100%; 
-            width: 100%;
-        }
-        /* Optional: Make the page fill the screen */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <div id="map"></div>
-    <script>
-        // Initialize and add the map
-        function initMap() {
-            // The location of the user's current position
-            navigator.geolocation.getCurrentPosition(position => {
-                const userLocation = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
-
-                // The map, centered at the user's current position
-                const map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 14,
-                    center: userLocation
-                });
-
-                // Add a marker at the user's current position
-                const marker = new google.maps.Marker({
-                    position: userLocation,
-                    map: map
-                });
-
-                // Add the Traffic Layer
-                const trafficLayer = new google.maps.TrafficLayer();
-                trafficLayer.setMap(map);
-            });
-        }
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
-    </script>
+    <script src="script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
 </body>
 </html>
+
